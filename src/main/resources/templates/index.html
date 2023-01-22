@@ -11,10 +11,13 @@
     <br>
     <span sec:authentication="principal.authorities">Roles</span>
 
+    <a th:href="@{/delete}">Delete</a>
+    <a th:href="@{/users}">Users</a>
+    <a th:href="@{/new}">Users</a>
+
     <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Logout" />
+        <input type="submit" value="Logout">
     </form>
 </div>
-<h1>Забронировать</h1>
 </body>
 </html>
