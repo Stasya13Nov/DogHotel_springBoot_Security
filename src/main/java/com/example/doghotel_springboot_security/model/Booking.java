@@ -2,9 +2,10 @@ package com.example.doghotel_springboot_security.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-
+import java.util.Date;
 
 
 @Data
@@ -17,9 +18,19 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "fio")
-    private String fio;
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @Column(name = "date_in")
+    private Date dateIn;
 
-    @Column(name = "age")
-    private int age;
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @Column(name = "date_out")
+    private Date dateOut;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BookingForm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+<div class="container text-center">
+    <h1>Бронирование</h1></div>
+    <form th:action="@{/booking/save}" th:object="${booking}" method="post"
+        style="width: 400px; margin: 0 auto;">
+        <input type="hidden" th:field="*{id}" th:value="${booking.id}"/>
+
+        <div class="form-group row">
+            <label class="col-form-label col-sm-4">Дата заезда</label>
+            <div class="col-sm-8">
+                <input type="date" class="form-control" required placeholder="дата заезда" th:field="*{dateIn}" id = "date_in"></div>
+            </div>
+
+        <div class="form-group row">
+            <label class="col-form-label col-sm-4">Дата выезда</label>
+            <div class="col-sm-8">
+                <input type="date" class="form-control" required placeholder="дата выезда" th:field="*{dateOut}" id = "date_out">
+        </div>
+
+            <div class="form-group row">
+                <label class="col-form-label col-sm-4">Тип комнаты</label>
+                <div class="col-sm-8">
+                    <select th:field="*{category}" class="form-control" required>
+                        <th:block th:each="cat :${listCategories}">
+                            <option th:text="${cat.name}" th:value="${cat.id}"/>
+                        </th:block>
+                    </select>
+                </div>
+            </div>
+
+        <div class="text-center p-4">
+            <button type="submit" class="btn btn-primary">Забронировать</button>
+        </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

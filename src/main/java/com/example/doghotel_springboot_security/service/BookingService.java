@@ -11,7 +11,6 @@ import java.util.List;;
 
 @Service
 @AllArgsConstructor
-@Slf4j
 public class BookingService {
 
     private final BookingRepository bookingRepository;

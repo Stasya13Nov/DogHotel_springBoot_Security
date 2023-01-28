@@ -1,6 +1,7 @@
 package com.example.doghotel_springboot_security.config;
 
 import com.example.doghotel_springboot_security.security.UserDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.security.authentication.dao.*;
 import org.springframework.security.config.annotation.authentication.builders.*;
@@ -9,9 +10,13 @@ import org.springframework.security.config.annotation.web.configuration.*;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.sql.DataSource;
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    @Autowired
+    private DataSource dataSource;
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -40,17 +45,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").hasAnyAuthority("USER", "ADMIN")
-                .antMatchers("/new/**").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers("/", "/register","/success","/booking/**" ).permitAll()
                 .antMatchers("/delete/**").hasAuthority("ADMIN")
                 .antMatchers("/users/**").hasAuthority("ADMIN")
+
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().permitAll()
+                .formLogin()
+                        .usernameParameter("email")
+                        .defaultSuccessUrl("/booking")
+                        .permitAll()
                 .and()
-                .logout().permitAll()
+                .logout().logoutSuccessUrl("/").permitAll()
                 .and()
                 .exceptionHandling().accessDeniedPage("/403")
         ;
     }
+
 }
