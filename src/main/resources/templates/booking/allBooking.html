@@ -24,8 +24,8 @@
             <th:block th:each="booking : ${listBookings}">
                 <tr>
                     <td>[[${booking.id}]]</td>
-                    <td>[[${booking.dateIn}]]</td>
-                    <td>[[${booking.dateOut}]]</td>
+                    <td th:text="${#dates.format(booking.dateIn, 'dd-MMM-yyyy')}"></td>
+                    <td th:text="${#dates.format(booking.dateOut, 'dd-MMM-yyyy')}"></td>
                     <td>[[${booking.category.name}]]</td>
                     <td>
                         <a th:href="@{'/booking/edit/' + ${booking.id}}">Изменить</a>

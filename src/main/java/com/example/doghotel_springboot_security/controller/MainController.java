@@ -38,7 +38,6 @@ public class MainController {
 
     @PostMapping("/process_register")
     public String processRegister(@ModelAttribute("user") User user) {
-//        user.setRoles(Collections.singleton(new Role("USER")));
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());

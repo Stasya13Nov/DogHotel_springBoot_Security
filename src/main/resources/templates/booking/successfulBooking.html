@@ -9,9 +9,9 @@
 <div class="container text-center">
     <h1>Вы успешно забронировали!</h1>
     <div sec:authorize="isAuthenticated()">
-    <p>
-        Здравсвуйте, <b>[[${#request.userPrincipal.principal.fullName}]]</b>!
-    </p>
+    <h2>
+        Добро пожаловать, <b>[[${#request.userPrincipal.principal.fullName}]]</b>!
+    </h2>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Logout">
         </form>
