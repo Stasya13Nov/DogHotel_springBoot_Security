@@ -6,7 +6,9 @@ import com.example.doghotel_springboot_security.model.User;
 import com.example.doghotel_springboot_security.repository.BookingRepository;
 import com.example.doghotel_springboot_security.service.BookingService;
 import com.example.doghotel_springboot_security.service.CategoryService;
+import com.example.doghotel_springboot_security.service.UserService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,12 +21,12 @@ import java.net.Authenticator;
 import java.util.List;
 
 @Controller
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping("/booking")
 public class BookingController {
     private final BookingService bookingService;
     private final CategoryService categoryService;
-    private final BookingRepository bookingRepository;
+    private final UserService userService;
 
     @GetMapping
     public String index(){
@@ -49,33 +51,19 @@ public class BookingController {
     @PostMapping("/save")
     public String saveBooking(Booking booking){
         bookingService.save(booking);
-        return "booking/successfulBooking";
+        return "redirect:/booking/successfulBooking";
     }
 
     @GetMapping("/successfulBooking")
-    public String successfulBooking(){
+    public String successfulBooking(Model model) {
+        User user = userService.currentUser();
+        model.addAttribute("currentUser", user);
         return "booking/successfulBooking";
-    }
-
-    @GetMapping("/allBooking")
-    public String listBookings(Model model){
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        String currentName = authentication.getName();
-
-//        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        if (principal instanceof UserDetails) {
-//            String username = ((UserDetails)principal).getUsername();
-//        } else {
-//            String username = principal.toString();
-//        }
-        List<Booking> listBookings = bookingService.findAll();
-        model.addAttribute("listBookings", listBookings);
-        return "booking/allBooking";
     }
 
     @GetMapping("/edit/{id}")
     public String editBooking(@PathVariable("id") int id, Model model){
-        Booking booking = bookingRepository.findById(id).get();
+        Booking booking = bookingService.findById(id);
         model.addAttribute("booking", booking);
         List<Category> listCategories = categoryService.findAll();
         model.addAttribute("listCategories", listCategories);

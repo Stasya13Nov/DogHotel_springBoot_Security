@@ -10,14 +10,14 @@
     <h1>Вы успешно забронировали!</h1>
     <div sec:authorize="isAuthenticated()">
     <p>
-        Здравсвуйте, <b>[[${#request.userPrincipal.principal.fullName}]]</b>!
+        Здравствуйте, <b>[[${#request.userPrincipal.principal.fullName}]]</b>!
     </p>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Logout">
         </form>
     <br>
-    <h3><a th:href="@{/booking/allBooking}">Мои бронирования</a></h3>
+    <h3><a th:href="@{/user/{userId}/bookings(userId=${currentUser.getId()})}"> Мои бронирования</a></h3>
+    </div>
 </div>
-
 </body>
 </html>
