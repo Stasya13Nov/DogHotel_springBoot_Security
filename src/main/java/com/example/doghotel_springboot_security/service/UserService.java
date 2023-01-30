@@ -4,6 +4,7 @@ import com.example.doghotel_springboot_security.model.User;
 import com.example.doghotel_springboot_security.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,8 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
+
+
     public User save(User user) {
         return userRepository.save(user);
     }
@@ -21,4 +24,12 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public User findById(int userId) {
+        return userRepository.findById(userId).orElseThrow();
+    }
+
+    public User currentUser() {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.findByEmail(email);
+    }
 }
