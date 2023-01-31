@@ -27,9 +27,17 @@ public class UserService {
     public User findById(int userId) {
         return userRepository.findById(userId).orElseThrow();
     }
-
     public User currentUser() {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         return userRepository.findByEmail(email);
+    }
+
+    public List<User> findByPrefix(String prefix) {
+        if (prefix!=null) {
+            return userRepository.search(prefix);
+        }
+        else {
+            return userRepository.findAll();
+        }
     }
 }

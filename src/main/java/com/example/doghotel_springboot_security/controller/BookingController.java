@@ -3,20 +3,15 @@ package com.example.doghotel_springboot_security.controller;
 import com.example.doghotel_springboot_security.model.Booking;
 import com.example.doghotel_springboot_security.model.Category;
 import com.example.doghotel_springboot_security.model.User;
-import com.example.doghotel_springboot_security.repository.BookingRepository;
 import com.example.doghotel_springboot_security.service.BookingService;
 import com.example.doghotel_springboot_security.service.CategoryService;
 import com.example.doghotel_springboot_security.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.Authenticator;
 import java.util.List;
 
 @Controller
@@ -59,14 +54,6 @@ public class BookingController {
         model.addAttribute("currentUser", user);
         return "booking/successfulBooking";
     }
-
-//    @GetMapping("/allBooking")//для админа
-//    public String listBookings(Model model){
-//
-//        List<Booking> listBookings = bookingService.findAll();
-//        model.addAttribute("listBookings", listBookings);
-//        return "booking/allBooking";
-//    }
 
     @GetMapping("/edit/{id}")
     public String editBooking(@PathVariable("id") int id, Model model){

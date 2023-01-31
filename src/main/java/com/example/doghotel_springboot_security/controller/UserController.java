@@ -3,12 +3,12 @@ package com.example.doghotel_springboot_security.controller;
 import com.example.doghotel_springboot_security.model.User;
 import com.example.doghotel_springboot_security.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller
 @AllArgsConstructor
@@ -23,7 +23,5 @@ public class UserController {
         model.addAttribute("bookings", user.getBookingList());
         return "booking/allBooking";
     }
-
-
 
 }

@@ -8,7 +8,20 @@
 <body>
 <br>
 <div class="container text-center">
-    <h1>Мои бронирования</h1>
+    <h1>Все бронирования гостей</h1>
+
+    <form th:action="@{/allUsersBookings}" method="get">
+        <label for="prefix"> ПОИСК:</label>
+        <input type="text" id="prefix" name="prefix" required>
+        <input type="submit" value="ПОИСК">
+        <input type="button" value="УДАЛИТЬ" id="btnClear" onclick="clearSearch()">
+    </form>
+
+    <script type="text/javascript">
+        function clearSearch() {
+            window.location = "[[@{/allUsersBookings}]]";
+        }
+    </script>
 
     <div>
         <table class="table table-bordered">
@@ -38,12 +51,9 @@
             </tbody>
         </table>
     </div>
-    <h3><a th:href="@{/booking/new}">Забронировать еще</a></h3>
-
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Logout">
-    </form>
+    <h4>
+        <a th:href="@{/booking}"><b>Назад</b></a>
+    </h4>
 </div>
-
 </body>
 </html>

@@ -37,4 +37,13 @@ public class BookingService {
     public void delete(int id) {
         bookingRepository.deleteById(id);
     }
+
+    public List<Booking> findByPrefix(String prefix) {
+        if (prefix!=null) {
+            return bookingRepository.search(prefix);
+        }
+        else {
+            return bookingRepository.findAll();
+        }
+    }
 }
