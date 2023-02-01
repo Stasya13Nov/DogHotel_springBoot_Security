@@ -25,7 +25,9 @@ public class BookingController {
     private final UserService userService;
 
     @GetMapping
-    public String index(){
+    public String index(Model model){
+        User user = userService.currentUser();
+        model.addAttribute("currentUser", user);
         return "booking/index";
     }
 

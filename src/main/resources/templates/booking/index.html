@@ -17,10 +17,11 @@
     </form>
 
     <div class="p-2">
-        <a class="h2" th:href="@{/booking/categories}">Типы комнат</a>
+       <a class="h2" th:href="@{/user/{userId}/bookings(userId=${currentUser.getId()})}">Мои бронирования</a>
+        <br>
+       <a class="h2" th:href="@{/booking/categories}">Типы комнат</a>
     </div>
 
-    <br><br>
     <br><br>
     <br><br>
     <br><br>

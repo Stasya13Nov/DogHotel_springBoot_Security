@@ -9,7 +9,7 @@
 <br>
 <div class="container text-center">
     <h1>Мои бронирования</h1>
-
+    <br>
     <div>
         <table class="table table-bordered">
             <thead class="thead-dark">
@@ -38,11 +38,13 @@
             </tbody>
         </table>
     </div>
+    <h3><a th:href="@{/rating}">Оценить бронирование</a></h3>
     <h3><a th:href="@{/booking/new}">Забронировать еще</a></h3>
 
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Logout">
     </form>
+    <br>
 </div>
 
 </body>
