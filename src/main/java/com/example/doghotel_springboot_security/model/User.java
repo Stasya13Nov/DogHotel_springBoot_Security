@@ -18,10 +18,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-
+    @NotEmpty(message = "Поле обязательно для заполнения!")
     @Column(name = "email")
     private String email;
 
+    @NotEmpty(message = "Поле обязательно для заполнения!")
     @Column(name = "password")
     private String password;
 

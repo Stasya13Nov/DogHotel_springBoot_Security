@@ -45,10 +45,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/register","/process_register","/booking/**", "/user/**" ).permitAll()
+                .antMatchers("/", "/register","/process_register","/booking/**", "/user/**",
+                        "/rating", "/successfulRating" ).permitAll()
                 .antMatchers("/users/**", "/allUsersBookings").hasAuthority("ADMIN")
 
-                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                         .usernameParameter("email")
