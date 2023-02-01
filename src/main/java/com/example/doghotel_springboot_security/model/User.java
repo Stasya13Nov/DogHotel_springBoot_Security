@@ -1,15 +1,16 @@
 package com.example.doghotel_springboot_security.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.util.*;
-
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
+@Data
+@NoArgsConstructor
 @Entity
-@Setter
-@Getter
 @Table(name = "users")
 public class User {
     @Id
@@ -17,15 +18,22 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+
     @Column(name = "email")
     private String email;
 
     @Column(name = "password")
     private String password;
 
+    @NotEmpty(message = "Поле обязательно для заполнения!")
+    @Size(min = 2, max = 50, message = "Поле должно содержать от 2 до 50 символов")
+    @Pattern(regexp = "[A-Za-z\\s]+", message = "Разрешены только латинские буквы")
     @Column(name = "first_name")
     private String firstName;
 
+    @NotEmpty(message = "Поле обязательно для заполнения!")
+    @Size(min = 2, max = 50, message = "Поле должно содержать от 2 до 50 символов")
+    @Pattern(regexp = "[A-Za-z\\s]+", message = "Разрешены только латинские буквы")
     @Column(name = "last_name")
     private String lastName;
 
@@ -44,11 +52,4 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Booking> bookingList;
 
-//    public void addBookingToUser(Booking booking){
-//        if (bookingList==null){
-//            bookingList = new ArrayList<>();
-//        }
-//        bookingList.add(booking);
-//        booking.setUser(this);
-//    }
 }

@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.FutureOrPresent;
 import java.util.Date;
 
 
@@ -19,10 +20,12 @@ public class Booking {
     private int id;
 
     @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @FutureOrPresent(message = "Введите корректные данные. Дата уже прошла")
     @Column(name = "date_in")
     private Date dateIn;
 
     @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @FutureOrPresent(message = "Введите корректные данные. Дата уже прошла")
     @Column(name = "date_out")
     private Date dateOut;
 

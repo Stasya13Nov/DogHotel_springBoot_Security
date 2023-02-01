@@ -10,8 +10,10 @@ import lombok.AllArgsConstructor;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -43,7 +45,10 @@ public class BookingController {
     }
 
     @PostMapping("/save")
-    public String saveBooking(Booking booking){
+    public String saveBooking(@Valid Booking booking, BindingResult bindingResult){
+        if (bindingResult.hasErrors()){
+            return "booking/bookingForm";
+        }
         bookingService.save(booking);
         return "redirect:/booking/successfulBooking";
     }
