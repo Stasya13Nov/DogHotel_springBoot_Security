@@ -23,16 +23,26 @@
     <div class="p-2">
        <a class="h2" th:href="@{/user/{userId}/bookings(userId=${currentUser.getId()})}">Мои бронирования</a>
         <br>
-       <a class="h2" th:href="@{/booking/categories}">Типы комнат</a>
+       <a class="h2" th:href="@{/booking/categories}">Новое бронирование</a>
+<br><br>
+        <table>
+            <tr><th><b>Тип комнаты</b></th><th><b>Описание</b></th></tr>
+            <tr><td><b>STANDART</b></td><td>Выгул 1 раз в день, щенки 2 раза в день.
+                Кормление не менее 2х раз в день (соблюдаем пожелания хозяев).
+                Уборка места проживания 1 раз в день.</td></tr>
+            <tr><td><b>SUITE</b></td><td>Выгул 2 раза в день, щенки 3 раза в день.
+                Кормление не менее 3х раз в день (соблюдаем пожелания хозяев).
+                Уборка места проживания 2 раза в день.
+                Гигиена (расчесывание длинношерстных пород)</td></tr>
+            <tr><td><b>VIP</b></td><td>Выгул 3 раза в день, щенки 5-6 раз в день.
+                Кормление не менее 4х раз в день (соблюдаем пожелания хозяев)
+                Уборка места проживания 3 раза в день.
+                Гигиена (расчесывание длинношерстных пород).
+                Приучение к беговой дорожке (30мин в день).
+            </td></tr>
+        </table>
     </div>
 
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
     <sec:authorize access="hasRole('ADMIN')">
     <div class="p-2">
         <a class="h2" th:href="@{/users}">Наши гости</a>
@@ -45,8 +55,13 @@
     </div>
     </sec:authorize>
 
+    <sec:authorize access="hasRole('ADMIN')">
+        <div class="p-2">
+            <a class="h2" th:href="@{/allRatings}">Отзывы и оценки</a>
+        </div>
+    </sec:authorize>
 
-
+    <br>
 </div>
 </body>
 </html>

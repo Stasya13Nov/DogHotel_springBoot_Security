@@ -21,10 +21,7 @@ a{
     font-weight:400;
 }
 a:hover{
-    color:#f9e4cc;
-    transition:all 1s ease;
-    transition-duration: 1s;
-    opacity: 2;
+    color:#d8c2a8
 }
 h2{
     text-align:center;
@@ -52,10 +49,11 @@ label{
     background: #b8fa09;
     border-radius:30%;
     margin:20px;
+    margin-left:-110px
 }
 
 .button:hover{
-    background: -webkit-linear-gradient(#aad721,#1a8080,#f9e4cc);
+    background: -webkit-linear-gradient(#aad721,#1a8080,#c5ead9);
     border-radius:0%;
     color:black
 }
@@ -66,42 +64,4 @@ form{
 input, select, button{
     box-shadow: 0 0 15px 3px;
     margin:10px
-}
-.delEdit{
-    color: #74cccc;
-    font-size:18px;
-}
-.delEdit:hover{
-    color: #170428;
-}
-.animaz{
-    font-size: 45px;
-    animation-name: animaz;
-    animation-duration: 3s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-}
-@keyframes animaz {
-    0%{
-        color:#b8fa09;
-    }
-    50%{
-        color: #8ae8f4;
-    }
-    100%{
-        color: #69e473;
-        text-shadow:2px 1px 3px #f1f4ea;
-    }
-}
-table{
-    border:2px solid #f9e4cc;
-    width: 800px;
-    margin: 0 auto;
-}
-th{
-    border:2px solid #f9e4cc;
-}
-td{
-    border:2px solid #f9e4cc;
 }

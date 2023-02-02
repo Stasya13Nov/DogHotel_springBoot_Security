@@ -28,4 +28,13 @@ public class RatingService {
         rating.setUser(user);
         return ratingRepository.save(rating);
     }
+
+    public List<Rating> findByPrefix(String prefix) {
+        if (prefix!=null) {
+            return ratingRepository.search(prefix);
+        }
+        else {
+            return ratingRepository.findAll();
+        }
+    }
 }

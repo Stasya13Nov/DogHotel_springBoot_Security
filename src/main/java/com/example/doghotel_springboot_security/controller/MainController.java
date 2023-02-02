@@ -1,10 +1,12 @@
 package com.example.doghotel_springboot_security.controller;
 
 import com.example.doghotel_springboot_security.model.Booking;
+import com.example.doghotel_springboot_security.model.Rating;
 import com.example.doghotel_springboot_security.model.Role;
 import com.example.doghotel_springboot_security.model.User;
 import com.example.doghotel_springboot_security.repository.UserRepository;
 import com.example.doghotel_springboot_security.service.BookingService;
+import com.example.doghotel_springboot_security.service.RatingService;
 import com.example.doghotel_springboot_security.service.RoleService;
 import com.example.doghotel_springboot_security.service.UserService;
 import lombok.AllArgsConstructor;
@@ -26,6 +28,7 @@ public class MainController {
 
     private final UserService userService;
     private final BookingService bookingService;
+    private final RatingService ratingService;
 
     @GetMapping
     public String getAllInfo(){
@@ -63,6 +66,15 @@ public class MainController {
         model.addAttribute("prefix", prefix);
         return "allUsersBookings";
     }
+
+    @GetMapping("/allRatings")//для админа
+    public String listRatings(Model model, @Param("prefix") String prefix){
+        List<Rating> listRatings = ratingService.findByPrefix(prefix);
+        model.addAttribute("ratings", listRatings);
+        model.addAttribute("prefix", prefix);
+        return "allRatings";
+    }
+
 
     @GetMapping("/403")
     public String error403(){

@@ -1,6 +1,7 @@
 package com.example.doghotel_springboot_security.service;
 
 import com.example.doghotel_springboot_security.model.Booking;
+import com.example.doghotel_springboot_security.model.Category;
 import com.example.doghotel_springboot_security.model.User;
 import com.example.doghotel_springboot_security.repository.BookingRepository;
 import com.example.doghotel_springboot_security.repository.UserRepository;
@@ -10,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;;
 
 @Service
@@ -45,5 +47,10 @@ public class BookingService {
         else {
             return bookingRepository.findAll();
         }
+    }
+
+    public void checkFreeRoom(Date dateIn, Date dateOut, Category category) {
+
+
     }
 }

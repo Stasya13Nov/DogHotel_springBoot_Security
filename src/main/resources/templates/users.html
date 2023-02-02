@@ -13,9 +13,9 @@
 <div class="container text-center">
     <div>
         <form th:action="@{/logout}" method="post">
-            <p>
-                Здравствуйте, <b>[[${#request.userPrincipal.principal.fullName}]]</b>
-            </p>
+<!--            <p>-->
+<!--                Здравствуйте, <b>[[${#request.userPrincipal.principal.fullName}]]</b>-->
+<!--            </p>-->
             <input type="submit" class="button" value="Logout" />
         </form>
     </div>
@@ -40,10 +40,10 @@
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
             <tr>
-                <th>User ID</th>
+                <th>ID ГОСТЯ</th>
                 <th>E-mail</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>ИМЯ</th>
+                <th>ФАМИЛИЯ</th>
             </tr>
             </thead>
             <tbody>

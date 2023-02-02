@@ -11,7 +11,8 @@
 <body>
 <br>
 <div class="container text-center">
-    <h1><b>Вы успешно забронировали!</b></h1>
+    <h1 class="animaz">Вы успешно забронировали!</h1>
+    <br><br>
     <div sec:authorize="isAuthenticated()">
     <h3>
         Добро пожаловать, <b>[[${#request.userPrincipal.principal.fullName}]]</b>!
@@ -23,6 +24,7 @@
     <br>
         <h3><a th:href="@{/user/{userId}/bookings(userId=${currentUser.getId()})}">Мои бронирования</a></h3>
     </div>
+    <br>
     <h4>
         <a th:href="@{/allUsersBookings}"><b>Назад</b></a>
     </h4>

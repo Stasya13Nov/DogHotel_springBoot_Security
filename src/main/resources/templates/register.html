@@ -12,9 +12,9 @@
 <br>
 <div class="container text-center">
     <div>
-        <h1>Регистрация</h1>
+        <h1 class="animaz">Регистрация</h1>
     </div>
-    <form th:action="@{/process_register}" th:object="${user}">
+    <form th:action="@{/process_register}" th:object="${user}" method="post">
         <div class="m-3">
             <div class="form-group row">
                 <label class="col-4 col-form-label">E-mail: </label>
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <div>
+            <div class="text-center p-4">
                 <button type="submit" class="button">Зарегистрироваться</button>
             </div>
         </div>

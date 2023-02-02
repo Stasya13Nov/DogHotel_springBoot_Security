@@ -32,9 +32,9 @@
                     <td th:text="${#dates.format(booking.dateOut, 'dd-MMM-yyyy')}"></td>
                     <td>[[${booking.category.name}]]</td>
                     <td>
-                        <a th:href="@{'/booking/edit/' + ${booking.id}}">Изменить</a>
+                        <a class="delEdit" th:href="@{'/booking/edit/' + ${booking.id}}">Изменить</a>
                         &nbsp;
-                        <a th:href="@{'/booking/delete/' + ${booking.id}}">Удалить</a>
+                        <a class="delEdit" th:href="@{'/booking/delete/' + ${booking.id}}">Удалить</a>
                     </td>
                 </tr>
             </th:block>
@@ -43,6 +43,9 @@
     </div>
     <h3><a th:href="@{/rating}">Оценить бронирование</a></h3>
     <h3><a th:href="@{/booking/new}">Забронировать еще</a></h3>
+    <h3>
+        <a th:href="@{/booking}"><b>Назад</b></a>
+    </h3>
 
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Logout" class="button">
