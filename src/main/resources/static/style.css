@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
     background: #1a8080;
 }
@@ -7,18 +11,16 @@ h1{
     font-size:35px;
     color:#b8fa09;
     text-shadow:3px 2px 3px #000000;
-    font-family: 'Roboto', sans-serif;
-    font-style: italic;
-    font-weight:700;
+    font-family: 'Oswald', sans-serif;
+    font-weight:600;
 }
 a{
     text-decoration: none;
     color:#170428;
     font-size:25px;
     margin:10px;
-    font-family: 'Roboto', sans-serif;
-    font-style: italic;
-    font-weight:400;
+    font-family: 'Oswald', sans-serif;
+    font-weight:500;
 }
 a:hover{
     color:#f9e4cc;
@@ -33,8 +35,7 @@ h2{
     color:#4c3c5b;
     text-shadow:2px 1px 2px #297070;
     margin:15px;
-    font-family: 'Roboto', sans-serif;
-    font-style: italic;
+    font-family: 'Oswald', sans-serif;
     font-weight:500;
 }
 label{
@@ -98,10 +99,44 @@ table{
     border:2px solid #f9e4cc;
     width: 800px;
     margin: 0 auto;
+    padding: 10px;
 }
 th{
     border:2px solid #f9e4cc;
+    padding: 10px;
 }
 td{
     border:2px solid #f9e4cc;
+    padding: 10px;
+}
+section{
+    height: 100vh;
+    width: 100%;
+    background: url(house.jpg);
+    background-size: cover;
+}
+.water{
+    height: 100vh;
+    background: url(water.png);
+    position: relative;
+    z-index: 0;
+    animation: water 0.3s linear infinite;
+}
+@keyframes water {
+    0%{
+        background-position: -10% -10%;
+    }
+    100%{
+        background-position: 20% 100%;
+    }
+}
+.info{
+    position: absolute;
+    z-index: 10;
+    left: 700px;
+    top: 30px;
+}
+.line{
+    display: flex;
+    justify-content: center;
 }

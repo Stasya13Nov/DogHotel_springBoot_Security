@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 
@@ -23,6 +24,12 @@ public class Booking {
 
     @NotEmpty(message = "Поле обязательно для заполнения!")
     @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @Size(min = 2, max = 20, message = "Поле должно содержать от 2 до 20 символов")
+    @Column(name = "name")
+    private String name;
+
+    @NotEmpty(message = "Поле обязательно для заполнения!")
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     @FutureOrPresent(message = "Введите корректные данные. Дата уже прошла")
     @Column(name = "date_in")
     private Date dateIn;
@@ -33,7 +40,6 @@ public class Booking {
     @Column(name = "date_out")
     private Date dateOut;
 
-    @NotEmpty(message = "Поле обязательно для заполнения!")
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;

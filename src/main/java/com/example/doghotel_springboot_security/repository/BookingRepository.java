@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface BookingRepository extends JpaRepository<Booking, Integer> {
     @Query("SELECT b FROM Booking b WHERE "
-            + "CONCAT(b.id, b.category.name)"
+            + "CONCAT(b.id, b.category.name, b.user.lastName, b.name)"
             + " LIKE %?1% order by b.id")
     List<Booking> search(String prefix);
 

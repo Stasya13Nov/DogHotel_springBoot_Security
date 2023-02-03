@@ -23,6 +23,7 @@ public class User {
     private String email;
 
     @NotEmpty(message = "Поле обязательно для заполнения!")
+    @Size(min = 3, max = 8, message = "Поле должно содержать от 3 до 8 символов")
     @Column(name = "password")
     private String password;
 
