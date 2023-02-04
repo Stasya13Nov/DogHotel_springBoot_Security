@@ -34,7 +34,8 @@
 --                         date_in date not null,
 --                         date_out date not null,
 --                         category_id int references category(id) on delete set null,
---                         user_id int references users(user_id) on delete set null
+--                         user_id int references users(user_id) on delete set null,
+--                         name varchar(20)
 -- );
 --
 -- create table rating(
@@ -54,9 +55,9 @@
 -- insert into category(name, price) VALUES
 --             ('STANDARD', 100), ('SUITE', 200), ('VIP', 500);
 --
--- insert into booking(date_in, date_out, category_id, user_id)
--- values ('2023-02-02', '2023-02-10', 1, 1),
---        ('2023-02-01', '2023-02-03', 2, 2);
+-- insert into booking(date_in, date_out, category_id, user_id, name)
+-- values ('2023-02-02', '2023-02-10', 1, 1,'Roki'),
+--        ('2023-02-01', '2023-02-03', 2, 2,'Bobik');
 
 -- INSERT into users(email, first_name, last_name, password) values
 -- ('admin@ru', 'Stas', 'Nov', '1313'),
