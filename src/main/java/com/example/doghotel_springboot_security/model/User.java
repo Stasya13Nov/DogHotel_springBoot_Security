@@ -22,20 +22,20 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @NotEmpty(message = "Поле обязательно для заполнения!")
-    @Size(min = 3, max = 8, message = "Поле должно содержать от 3 до 8 символов")
+//    @NotEmpty(message = "Поле обязательно для заполнения!")
+//    @Size(min = 3, max = 8, message = "Поле должно содержать от 3 до 8 символов!")
     @Column(name = "password")
     private String password;
 
     @NotEmpty(message = "Поле обязательно для заполнения!")
-    @Size(min = 2, max = 50, message = "Поле должно содержать от 2 до 50 символов")
-    @Pattern(regexp = "[A-Za-z\\s]+", message = "Разрешены только латинские буквы")
+    @Size(min = 2, max = 50, message = "Поле должно содержать от 2 до 50 символов!")
+    @Pattern(regexp = "[A-Za-z\\s]+", message = "Разрешены только латинские буквы!")
     @Column(name = "first_name")
     private String firstName;
 
     @NotEmpty(message = "Поле обязательно для заполнения!")
-    @Size(min = 2, max = 50, message = "Поле должно содержать от 2 до 50 символов")
-    @Pattern(regexp = "[A-Za-z\\s]+", message = "Разрешены только латинские буквы")
+    @Size(min = 2, max = 50, message = "Поле должно содержать от 2 до 50 символов!")
+    @Pattern(regexp = "[A-Za-z\\s]+", message = "Разрешены только латинские буквы!")
     @Column(name = "last_name")
     private String lastName;
 

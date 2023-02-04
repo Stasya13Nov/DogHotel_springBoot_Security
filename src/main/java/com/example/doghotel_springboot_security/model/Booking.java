@@ -5,10 +5,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Future;
-import javax.validation.constraints.FutureOrPresent;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 
@@ -23,20 +20,18 @@ public class Booking {
     private int id;
 
     @NotEmpty(message = "Поле обязательно для заполнения!")
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
-    @Size(min = 2, max = 20, message = "Поле должно содержать от 2 до 20 символов")
+    @Pattern(regexp = "[A-Za-z\\s]+", message = "Разрешены только латинские буквы!")
+    @Size(min = 2, max = 20, message = "Поле должно содержать от 2 до 20 символов!")
     @Column(name = "name")
     private String name;
 
-    @NotEmpty(message = "Поле обязательно для заполнения!")
+    @NotNull(message = "Поле обязательно для заполнения!")
     @DateTimeFormat(pattern = "yyyy-mm-dd")
-    @FutureOrPresent(message = "Введите корректные данные. Дата уже прошла")
     @Column(name = "date_in")
     private Date dateIn;
 
-    @NotEmpty(message = "Поле обязательно для заполнения!")
+    @NotNull(message = "Поле обязательно для заполнения!")
     @DateTimeFormat(pattern = "yyyy-mm-dd")
-    @Future(message = "Введите корректные данные. Дата уже прошла")
     @Column(name = "date_out")
     private Date dateOut;
 

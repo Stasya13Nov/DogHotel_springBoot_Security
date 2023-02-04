@@ -28,7 +28,7 @@ a:hover{
     transition-duration: 1s;
     opacity: 2;
 }
-h2{
+h2,h3{
     text-align:center;
     letter-spacing:2.4px;
     font-size:35px;
@@ -37,6 +37,9 @@ h2{
     margin:15px;
     font-family: 'Oswald', sans-serif;
     font-weight:500;
+}
+h3{
+    color: #170428;
 }
 label{
     font-size: 20px;
@@ -139,5 +142,37 @@ section{
 .line{
     display: flex;
     justify-content: center;
+}
+.error{
+    color: red;
+}
+.suc{
+    display: block;
+    margin: 0 auto;
+    height: 400px;
+    width: 600px;
+    margin-top:80px;
+    border:6px solid #9f9da3;
+    box-shadow: 0 0 15px 9px;
+}
+.room{
+    display: block;
+    margin: 0 auto;
+    height: 300px;
+    width: 600px;
+    margin-top:65px;
+    margin-bottom:40px;
+    border:6px solid #9f9da3;
+    box-shadow: 0 0 15px 9px;
+}
+.dinner{
+    display: block;
+    margin: 0 auto;
+    height: 300px;
+    width: 600px;
+    margin-top:1px;
+    margin-bottom:20px;
+    border:6px solid #9f9da3;
+    box-shadow: 0 0 15px 9px;
 }
 
