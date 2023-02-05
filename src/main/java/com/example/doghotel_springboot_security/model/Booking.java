@@ -20,20 +20,18 @@ public class Booking {
     private int id;
 
     @NotEmpty(message = "Поле обязательно для заполнения!")
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
-    @Size(min = 2, max = 20, message = "Поле должно содержать от 2 до 20 символов")
+    @Pattern(regexp = "[A-Za-z\\s]+", message = "Разрешены только латинские буквы!")
+    @Size(min = 2, max = 20, message = "Поле должно содержать от 2 до 20 символов!")
     @Column(name = "name")
     private String name;
 
     @NotNull(message = "Поле обязательно для заполнения!")
     @DateTimeFormat(pattern = "yyyy-mm-dd")
-    @FutureOrPresent(message = "Введите корректные данные. Дата уже прошла")
     @Column(name = "date_in")
     private Date dateIn;
 
     @NotNull(message = "Поле обязательно для заполнения!")
     @DateTimeFormat(pattern = "yyyy-mm-dd")
-    @Future(message = "Введите корректные данные. Дата уже прошла")
     @Column(name = "date_out")
     private Date dateOut;
 

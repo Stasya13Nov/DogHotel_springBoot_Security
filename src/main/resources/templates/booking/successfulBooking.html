@@ -12,7 +12,6 @@
 <br>
 <div class="container text-center">
     <h1 class="animaz">Вы успешно забронировали!</h1>
-    <br><br>
     <div sec:authorize="isAuthenticated()">
     <h3>
         Добро пожаловать, <b>[[${#request.userPrincipal.principal.fullName}]]</b>!
@@ -21,10 +20,10 @@
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Logout" class="button">
         </form>
-    <br>
-        <h3><a th:href="@{/user/{userId}/bookings(userId=${currentUser.getId()})}">Мои бронирования</a></h3>
+        <h2><a th:href="@{/user/{userId}/bookings(userId=${currentUser.getId()})}">Мои бронирования</a></h2>
     </div>
     <br>
+    <img class="dinner" src="dinner" alt="FOTO">
     <h4>
         <a th:href="@{/allUsersBookings}"><b>Назад</b></a>
     </h4>

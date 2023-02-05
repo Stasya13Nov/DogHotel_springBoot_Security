@@ -20,9 +20,6 @@ public class Rating {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty(message = "Поле обязательно для заполнения!")
-    @Min(value = 1, message = "Введите от 1 до 5")
-    @Max(value = 5, message = "Введите от 1 до 5")
     @Column(name = "grade")
     private int grade;
 
