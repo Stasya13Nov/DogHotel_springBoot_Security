@@ -8,6 +8,7 @@ import com.example.doghotel_springboot_security.service.CategoryService;
 import com.example.doghotel_springboot_security.service.UserService;
 import lombok.AllArgsConstructor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,7 @@ import java.util.List;
 @Controller
 @AllArgsConstructor
 @RequestMapping("/booking")
+@Slf4j
 public class BookingController {
     private final BookingService bookingService;
     private final CategoryService categoryService;
@@ -49,12 +51,14 @@ public class BookingController {
     }
 
     @PostMapping("/save")
-    public String saveBooking(@Valid Booking booking, BindingResult bindingResult){
+    public String saveBooking(@Valid Booking booking, BindingResult bindingResult, Model model) {
+        log.info(booking.toString());
         if (bindingResult.hasErrors()){
+            log.error(bindingResult.getAllErrors().toString());
             return "booking/bookingForm";
         }
 //        bookingService.checkFreeRoom(dateIn, dateOut, category);
-
+        log.info("No errors :)");
         bookingService.save(booking);
         return "redirect:/booking/successfulBooking";
     }
