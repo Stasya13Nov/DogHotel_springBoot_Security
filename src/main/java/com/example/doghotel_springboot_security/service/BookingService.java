@@ -49,7 +49,14 @@ public class BookingService {
         }
     }
 
-    public void checkFreeRoom(Date dateIn, Date dateOut, Category category) {
+    public boolean checkFreeRoom(Booking booking) {
+        List<Booking> allBookings = bookingRepository.findAll();
+        long reservedRooms = allBookings.stream()
+                .filter(b -> booking.getCategory().equals(b.getCategory()))
+                .filter(b -> booking.getDateIn().after(b.getDateIn()) || booking.getDateIn().equals(b.getDateIn())
+                && booking.getDateOut().equals(b.getDateOut()) || booking.getDateOut().before(b.getDateOut()))
+                .count();
+        return reservedRooms < 3;
 
 
     }

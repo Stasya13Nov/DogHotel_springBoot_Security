@@ -49,14 +49,21 @@ public class BookingController {
     }
 
     @PostMapping("/save")
-    public String saveBooking(@Valid Booking booking, BindingResult bindingResult){
+    public String saveBooking(@Valid Booking booking, BindingResult bindingResult, Model model){
+        List<Category> listCategories = categoryService.findAll();
+        model.addAttribute("listCategories", listCategories);
+
         if (bindingResult.hasErrors()){
             return "booking/bookingForm";
         }
-//        bookingService.checkFreeRoom(dateIn, dateOut, category);
 
-        bookingService.save(booking);
-        return "redirect:/booking/successfulBooking";
+        if (bookingService.checkFreeRoom(booking) == false){
+            return "403";
+        }
+        else {
+            bookingService.save(booking);
+            return "redirect:/booking/successfulBooking";
+        }
     }
 
     @GetMapping("/successfulBooking")

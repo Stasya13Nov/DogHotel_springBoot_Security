@@ -115,12 +115,12 @@ td{
 section{
     height: 100vh;
     width: 100%;
-    background: url(house.jpg);
+    background: url(../img/house.jpg);
     background-size: cover;
 }
 .water{
     height: 100vh;
-    background: url(water.png);
+    background: url(../img/water.png);
     position: relative;
     z-index: 0;
     animation: water 0.3s linear infinite;
@@ -158,10 +158,10 @@ section{
 .room{
     display: block;
     margin: 0 auto;
-    height: 300px;
+    height: 350px;
     width: 600px;
-    margin-top:65px;
-    margin-bottom:40px;
+    margin-top:35px;
+    margin-bottom:10px;
     border:6px solid #9f9da3;
     box-shadow: 0 0 15px 9px;
 }
@@ -169,10 +169,12 @@ section{
     display: block;
     margin: 0 auto;
     height: 300px;
-    width: 600px;
-    margin-top:1px;
-    margin-bottom:20px;
+    width: 620px;
+    margin-top:45px;
+    margin-bottom:26px;
     border:6px solid #9f9da3;
     box-shadow: 0 0 15px 9px;
 }
+
+
 

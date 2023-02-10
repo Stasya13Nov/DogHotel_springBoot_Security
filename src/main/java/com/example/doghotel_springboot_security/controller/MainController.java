@@ -40,6 +40,11 @@ public class MainController {
         return "register";
     }
 
+    @GetMapping("/login")
+    public String loginPage(){
+        return "login";
+    }
+
     @PostMapping("/process_register")
     public String processRegister(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()){

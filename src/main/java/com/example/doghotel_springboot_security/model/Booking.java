@@ -20,7 +20,7 @@ public class Booking {
     private int id;
 
     @NotEmpty(message = "Поле обязательно для заполнения!")
-    @Pattern(regexp = "[A-Za-z\\s]+", message = "Разрешены только латинские буквы!")
+    @Pattern(regexp = "[A-Za-z]+", message = "Разрешены только латинские буквы!")
     @Size(min = 2, max = 20, message = "Поле должно содержать от 2 до 20 символов!")
     @Column(name = "name")
     private String name;
