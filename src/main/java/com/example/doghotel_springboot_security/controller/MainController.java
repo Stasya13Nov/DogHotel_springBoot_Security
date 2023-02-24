@@ -80,6 +80,11 @@ public class MainController {
         return "allRatings";
     }
 
+    @GetMapping("/info")
+    public String info(){
+        return "info";
+    }
+
 
     @GetMapping("/403")
     public String error403(){

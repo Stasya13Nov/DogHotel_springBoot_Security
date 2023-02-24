@@ -95,7 +95,6 @@ input, select, button{
     }
     100%{
         color: #69e473;
-        text-shadow:2px 1px 3px #f1f4ea;
     }
 }
 table{
@@ -174,6 +173,16 @@ section{
     margin-bottom:26px;
     border:6px solid #9f9da3;
     box-shadow: 0 0 15px 9px;
+}
+.infoAboutHotel{
+    text-align:center;
+    letter-spacing:2.4px;
+    font-family: 'Oswald', sans-serif;
+    font-weight:500;
+    text-align:justify;
+    color:#b8fa09;
+    text-shadow:2px 1px 2px #0c0c0c;
+    margin:19px
 }
 
 

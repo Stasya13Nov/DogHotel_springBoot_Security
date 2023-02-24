@@ -57,13 +57,11 @@ public class BookingController {
             return "booking/bookingForm";
         }
 
-        if (bookingService.checkFreeRoom(booking) == false){
-            return "403";
-        }
-        else {
+//        if (bookingService.checkFreeRoom(booking) == false){
+//            return "403";
+//        }
             bookingService.save(booking);
             return "redirect:/booking/successfulBooking";
-        }
     }
 
     @GetMapping("/successfulBooking")
@@ -93,7 +91,4 @@ public class BookingController {
         model.addAttribute("currentUser", user);
         return "booking/delete";
     }
-
-
-
 }
